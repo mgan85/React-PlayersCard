@@ -17,12 +17,20 @@ class App extends Component {
         this.data = data;
     }
 
+    // Function get random photo for card
     getPhoto() {
         let photo = require('../img/' + this.photos[0]);
         this.photos.shift();
         return photo;
     }
 
+    /*
+     * Function render card for player.
+     * key - unique key for render cards
+     * player - information about players
+     * stats - statistic about player
+     * photo - photo of player
+     */
     renderCard(props) {
         return <Card
             key={props.player.id}
@@ -32,6 +40,7 @@ class App extends Component {
         />
     }
 
+    // Function render App component
     render() {
         return (
             <div className="App">

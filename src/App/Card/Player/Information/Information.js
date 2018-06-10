@@ -16,15 +16,17 @@ class Information extends Component {
         this.positionInfo = props.positionInfo;
     }
 
-    getShortPozitionName() {
+    // Function get position name from position info.
+    getShortPositionName() {
         let elem = this.positionInfo.split(" ");
-        return  elem[elem.length - 1];
+        return elem[elem.length - 1];
     }
-    //function render control
+
+    // Function render control Information
     render() {
         return (
             <div className="Information">
-                {this.getShortPozitionName()}
+                {this.getShortPositionName()}
             </div>
         );
     }

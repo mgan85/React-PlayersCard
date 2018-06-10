@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './CurrentTeam.css';
 
-
 /*
  * Object create information about current team of player.
  * name - team name
@@ -12,13 +11,13 @@ import './CurrentTeam.css';
 class CurrentTeam extends Component {
     constructor(props) {
         super(props);
-        this.teamID= props.teamID;
+        this.teamID = props.teamID;
         this.name = props.name;
         this.teamType = props.teamType;
         this.shortName = props.shortName;
     }
 
-    //function render control
+    // Function render control CurrentTeam
     render() {
         return (
             <div className="CurrentTeam">

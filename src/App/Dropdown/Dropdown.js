@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import './Dropdown.css';
 import data from './../../data/player-stats.json'
 
+/*
+ * Object create control dropdown which allows choose player.
+ * id - control id
+ * data - data with information about players
+ * playerList - list of player which will be available form dropdown
+ */
 class Dropdown extends Component {
     constructor(props) {
         super();
@@ -10,6 +16,7 @@ class Dropdown extends Component {
         this.playerList = this.getPlayerList();
     }
 
+    // Function get list of all players.
     getPlayerList() {
         let playerList = [];
         playerList.push({id: "selectInfo", name: "Select a palyer ..."});
@@ -24,13 +31,18 @@ class Dropdown extends Component {
         return playerList;
     }
 
+    // Function hide all cards component in app.
     hideAllCards() {
         Array.from(document.getElementsByClassName("playerCard")).map((card) => {
-            card.style.display="none";
+            card.style.display = "none";
             return card;
         })
     }
 
+    /*
+     * Function show card component for selected value n dropdown control.
+     * val - value for which we show card
+     */
     showCard(val) {
         var option = document.querySelector("option[value='" + val + "']");
         if (option != null) {
@@ -42,24 +54,24 @@ class Dropdown extends Component {
         }
     }
 
+    // Function show selected card in dropdown.
     onChange(e) {
-        console.log("you selected: " + e.target.value);
         this.hideAllCards();
         this.showCard(e.target.value);
     }
 
 
-    renderOption (props) {
+    // Function create one options for dropdown.
+    renderOption(props) {
         return <option key={props.id} id={props.id} value={props.name}>{props.name}</option>
     }
 
-    //function create all options for combobox
+    // Function create all options for combobox.
     renderOptions() {
-        //this.getPlayerList();
         return this.playerList.map(this.renderOption);
     }
 
-    //function render control
+    // Function render control dropdown.
     render() {
         return (
             <div className="Dropdown">

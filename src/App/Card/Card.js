@@ -17,6 +17,15 @@ class Card extends Component {
         this.photo = props.photo;
     }
 
+    /*
+     * Function create Player component on card.
+     * information - general information about player
+     * nationalTeam - information about notional team
+     * age - player age
+     * name - player name
+     * playerID - unique id
+     * currentTeam - information about current team
+     */
     renderPlayer() {
         return <Player
             information={this.player.info}
@@ -28,21 +37,26 @@ class Card extends Component {
         />
     }
 
+    // Function create component with player stats.
     renderStats() {
         return <Stats
             stats={this.stats}
         />
     }
 
-    renderFullName() {
-        return  this.player.name.first + " " + this.player.name.last;
+    /*
+     * Function get player fullname which is use in alt
+     * attribute for img tag.
+     */
+    getFullName() {
+        return this.player.name.first + " " + this.player.name.last;
     }
 
-    //function render control
+    // Function render control Card
     render() {
         return (
-            <div id={"card_"+this.player.id} className="playerCard">
-                <img src={this.photo} alt={this.renderFullName()}/>
+            <div id={"card_" + this.player.id} className="playerCard">
+                <img src={this.photo} alt={this.getFullName()}/>
                 <div className="playerInfo">
                     {this.renderPlayer()}
                     {this.renderStats()}

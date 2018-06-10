@@ -24,24 +24,30 @@ class Player extends Component {
         this.playerID = props.playerID;
     }
 
+    // Function create html element with player fullname
     renderFullName() {
         var fullname = this.name.first + " " + this.name.last;
         return <div className="fullname"> {fullname}</div>
     }
 
+    /*
+     * Function convert player age. Player age is given in years and days.
+     * Function convert age to year, months and days.
+     */
     convertAge() {
         let temp = this.age.split(" ");
         let dateDays = temp[2];
         let dateYears = temp[0] + " " + temp[1];
 
-        function convertDaysToMonths (dateDays) {
+        // Function convert days to months
+        function convertDaysToMonths(dateDays) {
             let currentYear = new Date().getFullYear();
             let sum = 0;
             let result = "";
 
-            for(var i = 1; i <= 12; i++) {
+            for (var i = 1; i <= 12; i++) {
                 sum += new Date(currentYear, i, 0).getDate();
-                if(sum > dateDays)
+                if (sum > dateDays)
                     break;
             }
             let days = sum - dateDays;
@@ -58,40 +64,64 @@ class Player extends Component {
         return dateYears + " " + convertDaysToMonths(dateDays);
     }
 
+    // Function create html element with player age
     renderAge() {
         return <div className="Age">{this.convertAge()}</div>
     }
 
+    /*
+     * Function create html element with badge team.
+     * cssClass - classes css which we want add to element
+     */
     renderbadge(cssClass) {
         return <div className={"badge " + cssClass} alt="logo"/>
     }
 
+    /*
+     * Function create component with information about current team.
+     * teamID - unique id
+     * name - team name
+     * teamType - type of team
+     * shortName - short name for team
+     */
     renderCurrentTeam() {
         return <CurrentTeam
-            teamID = {this.currentTeam.id}
-            name = {this.currentTeam.name}
-            teamType = {this.currentTeam.teamType}
-            shortName = {this.currentTeam.shortName}
+            teamID={this.currentTeam.id}
+            name={this.currentTeam.name}
+            teamType={this.currentTeam.teamType}
+            shortName={this.currentTeam.shortName}
         />
     }
 
+    /*
+     * Function create component with information about national team.
+     * isoCode - iso code for player country
+     * country - country name
+     * demonym - nationality?
+     */
     renderNationalTeam() {
         return <NationalTeam
-            isoCode= {this.nationalTeam.isoCode}
-            country = {this.nationalTeam.country}
-            demonym = {this.nationalTeam.demonym}
+            isoCode={this.nationalTeam.isoCode}
+            country={this.nationalTeam.country}
+            demonym={this.nationalTeam.demonym}
         />
     }
 
+    /*
+     * Function create component with general information about player.
+     * position - symbol of the position on which the player plays
+     * shirtNum - shirt number
+     * position - information about player position
+     */
     renderInformation() {
         return <Information
-            position = {this.information.position}
-            shirtNum = {this.information.shirtNum}
-            positionInfo = {this.information.positionInfo}
+            position={this.information.position}
+            shirtNum={this.information.shirtNum}
+            positionInfo={this.information.positionInfo}
         />
     }
 
-    //function render control
+    // Function render control Player
     render() {
         return (
             <div className="Player">

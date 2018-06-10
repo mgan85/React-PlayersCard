@@ -10,12 +10,12 @@ import './NationalTeam.css';
 class NationalTeam extends Component {
     constructor(props) {
         super(props);
-        this.isoCode= props.isoCode;
+        this.isoCode = props.isoCode;
         this.country = props.country;
         this.demonym = props.demonym;
     }
 
-    //function render control
+    // Function render control NationalTeam
     render() {
         return (
             <div className="NationalTeam">
