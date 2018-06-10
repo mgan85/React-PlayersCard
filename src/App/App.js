@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './../Card/Card'
+import Card from './Card/Card'
+import Dropdown from './Dropdown/Dropdown'
 import data from './../data/player-stats.json'
 
 class App extends Component {
@@ -14,19 +15,6 @@ class App extends Component {
             "p8983.png"
         ];
         this.data = data;
-    }
-
-    getPlayerList() {
-        var playerList =[]
-        this.data.players.forEach((elem) => {
-            var player = {
-                id: elem.player.id,
-                name: elem.player.name.first + " " + elem.player.name.last
-            }
-            playerList.push(player)
-        })
-
-        return playerList;
     }
 
     getPhoto() {
@@ -47,6 +35,9 @@ class App extends Component {
     render() {
     return (
       <div className="App">
+          <Dropdown
+              id="player"
+          />
           {data.players.map(this.renderCard.bind(this))}
       </div>
     );
