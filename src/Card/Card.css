@@ -1,0 +1,12 @@
+.playerCard {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f7f7f7;
+}
+
+.playerInfo {
+    background-color: #fd6382;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

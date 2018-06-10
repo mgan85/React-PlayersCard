@@ -1,0 +1,26 @@
+.Stats {
+    display: inline-grid;
+}
+
+.Stats > span {
+    background-color: #ecedff;
+    margin: 3px;
+    height: 30px;
+    line-height: 30px
+}
+
+.Stats > span > p {
+    display: inline-flex;
+    margin: 0px;
+}
+
+.Stats > span p.name {
+    float: left;
+    width: 150px;
+    padding-left: 5px;
+}
+
+.Stats > span p.value {
+    float: right;
+    padding-right: 5px;
+}
