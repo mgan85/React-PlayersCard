@@ -7,10 +7,11 @@ class Dropdown extends Component {
         super();
         this.id = props.id;
         this.data = data;
+        this.playerList = this.getPlayerList();
     }
 
     getPlayerList() {
-        var playerList =[]
+        let playerList = [];
         this.data.players.forEach((elem) => {
             var player = {
                 id: elem.player.id,
@@ -22,23 +23,47 @@ class Dropdown extends Component {
         return playerList;
     }
 
+    hideAllCards() {
+        Array.from(document.getElementsByClassName("playerCard")).map((card) => {
+            card.style.display="none";
+        })
+    }
+
+    showCard(val) {
+        var option = document.querySelector("option[value='" + val + "']");
+        if (option != null) {
+            var id = option.id;
+            var card = document.getElementById("card_" + id);
+            if (card != null) {
+                card.style.display = "block";
+            }
+        }
+    }
+
+    onChange(e) {
+        console.log("you selected: " + e.target.value);
+        this.hideAllCards();
+        this.showCard(e.target.value);
+    }
+
+
     renderOption (props) {
-        return <option key={props.id} value={props.name} />
+        return <option key={props.id} id={props.id} value={props.name}>{props.name}</option>
     }
 
     //function create all options for combobox
     renderOptions() {
-        return this.getPlayerList().map(this.renderOption);
+        //this.getPlayerList();
+        return this.playerList.map(this.renderOption);
     }
 
     //function render control
     render() {
         return (
             <div className="Dropdown">
-                <input list={this.id} placeholder="Select a player ..."/>
-                <datalist id={this.id}>
+                <select defaultValue={this.playerList[0].name} laceholder="Select a player ..." onChange={this.onChange.bind(this)}>
                     {this.renderOptions()}
-                </datalist>
+                </select>
             </div>
         );
     }

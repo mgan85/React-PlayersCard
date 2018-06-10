@@ -41,7 +41,7 @@ class Card extends Component {
     //function render control
     render() {
         return (
-            <div className="playerCard">
+            <div id={"card_"+this.player.id} className="playerCard">
                 <img src={this.photo} alt={this.renderFullName()}/>
                 <div className="playerInfo">
                     {this.renderPlayer()}

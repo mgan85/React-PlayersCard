@@ -23,9 +23,9 @@ class App extends Component {
         return photo;
     }
 
-    renderCard (props) {
+    renderCard(props) {
         return <Card
-            key = {props.player.id}
+            key={props.player.id}
             player={props.player}
             stats={props.stats}
             photo={this.getPhoto.call(this)}
@@ -33,15 +33,15 @@ class App extends Component {
     }
 
     render() {
-    return (
-      <div className="App">
-          <Dropdown
-              id="player"
-          />
-          {data.players.map(this.renderCard.bind(this))}
-      </div>
-    );
-  }
+        return (
+            <div className="App">
+                <Dropdown
+                    id="player"
+                />
+                {data.players.map(this.renderCard.bind(this))}
+            </div>
+        );
+    }
 }
 
 export default App;
