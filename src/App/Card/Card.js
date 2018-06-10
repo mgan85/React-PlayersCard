@@ -48,7 +48,6 @@ class Card extends Component {
                     {this.renderStats()}
                 </div>
             </div>
-
         );
     }
 }

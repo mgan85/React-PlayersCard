@@ -12,6 +12,7 @@ class Dropdown extends Component {
 
     getPlayerList() {
         let playerList = [];
+        playerList.push({id: "selectInfo", name: "Select a palyer ..."});
         this.data.players.forEach((elem) => {
             var player = {
                 id: elem.player.id,
@@ -26,6 +27,7 @@ class Dropdown extends Component {
     hideAllCards() {
         Array.from(document.getElementsByClassName("playerCard")).map((card) => {
             card.style.display="none";
+            return card;
         })
     }
 
@@ -61,7 +63,7 @@ class Dropdown extends Component {
     render() {
         return (
             <div className="Dropdown">
-                <select defaultValue={this.playerList[0].name} laceholder="Select a player ..." onChange={this.onChange.bind(this)}>
+                <select onChange={this.onChange.bind(this)}>
                     {this.renderOptions()}
                 </select>
             </div>
